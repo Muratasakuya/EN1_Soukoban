@@ -44,7 +44,7 @@ public class GameManagerScript : MonoBehaviour
     //=============================================================
     // 2(箱)を押す関数
     //=============================================================
-    bool MoveNumber(int number, int moveFrom, int moveTo)
+    bool PushBox(int number, int moveFrom, int moveTo)
     {
 
         // 移動先が範囲外なら移動できない
@@ -64,7 +64,7 @@ public class GameManagerScript : MonoBehaviour
             // プレイヤーの移動先から、さらに先へ2(箱)を移動させる
             // 箱の移動処理。MoveNumberメソッド内でMoveNumberメソッドを
             // 呼び、処理が再帰している。移動可不可をboolで記録
-            bool success = MoveNumber(2, moveTo, moveTo + velocity);
+            bool success = PushBox(2, moveTo, moveTo + velocity);
 
             // もし箱が移動失敗したら、プレイヤーの移動も失敗
             if (!success)
@@ -87,7 +87,7 @@ public class GameManagerScript : MonoBehaviour
     {
 
         // 配列の実態の作成と初期化
-        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 2, 0 };
+        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
 
         // 配列の中身を出力
         PrintArray();
@@ -105,7 +105,7 @@ public class GameManagerScript : MonoBehaviour
             int playerIndex = GetPlayerIndex();
 
             // 数字を右に移動させる
-            MoveNumber(1, playerIndex, playerIndex + 1);
+            PushBox(1, playerIndex, playerIndex + 1);
 
             // 配列の中身を出力
             PrintArray();
@@ -118,7 +118,7 @@ public class GameManagerScript : MonoBehaviour
             int playerIndex = GetPlayerIndex();
 
             // 数字を左に移動させる
-            MoveNumber(1, playerIndex, playerIndex - 1);
+            PushBox(1, playerIndex, playerIndex - 1);
 
             // 配列の中身を出力
             PrintArray();

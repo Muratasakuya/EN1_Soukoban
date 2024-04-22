@@ -87,7 +87,7 @@ public class GameManagerScript : MonoBehaviour
     {
 
         // 配列の実態の作成と初期化
-        map = new int[] { 0, 0, 0, 1, 0, 2, 0, 0, 0 };
+        map = new int[] { 0, 0, 2, 1, 0, 2, 0, 0, 0 };
 
         // 配列の中身を出力
         PrintArray();
